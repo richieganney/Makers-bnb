@@ -4,13 +4,15 @@ require_relative '../spec/database_connection_setup.rb'
 
 class Spaces
 
-  attr_reader :address, :title, :description, :price_per_night, :owner
+  attr_reader :space_id, :address, :title, :description, :price_per_night, :owner
 
-  def initialize(address:, title:, description:, price_per_night:, owner: )
+  def initialize(space_id:, address:, title:, description:, price_per_night:, owner: )
+
     @address = address
     @title = title
     @description = description
     @price_per_night = price_per_night
+    @space_id = space_id
     @owner = owner
   end
 
@@ -20,5 +22,14 @@ class Spaces
                 description: space['description'],
                 price_per_night: 'price_per_night', 
                 title: space['title'], owner: space['owner'])}
+  end
+
+  def self.add(address, title, description, price_per_night, user_id)
+    result = DatabaseConnection.query(
+      "INSERT INTO spaces (address, title, description, price_per_night, owner)
+       VALUES ('#{address}', '#{title}', '#{description}', '#{price_per_night}', '#{user_id}')
+       RETURNING space_id, address, title, description, price_per_night;"
+    )
+    Spaces.new(result[0]['space_id'], result[0]['address'], result[0]['title'], result[0]['description'], result[0]['price_per_night'], user_id)
   end
 end
