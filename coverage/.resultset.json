@@ -30,10 +30,45 @@
         1,
         1,
         1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/daniel/Makers/Makers-bnb/lib/spaces.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
         null,
         null
       ]
     },
-    "timestamp": 1564406334
+    "timestamp": 1564409904
   }
 }
