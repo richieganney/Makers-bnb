@@ -47,3 +47,9 @@ I want to list my space on the webpage
 As a user,
 So I can stay somewhere for the night,
 I want to be able to see a list of spaces on the site
+
+As a user,
+So I can use makers bnb,
+I want to register for an account
+
+<!-- ✅ -->
