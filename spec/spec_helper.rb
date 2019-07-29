@@ -13,14 +13,18 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+ENV['ENVIRONMENT'] = 'test' 
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara/rspec'
 require 'rspec'
-require_relative '../lib/database_connection_setup'
-require_relative './test_helper'
+require_relative './database_connection_setup.rb'
+
+
+
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
+
 
 Capybara.app = ApplicationManager
 
@@ -32,13 +36,15 @@ SimpleCov.start
 RSpec.configure do |config|
   config.before(:each) do
     # run the truncate command on both tables in the test database for us
-    test_helper
+
+    puts 'running setup methods ...'
   end
 
   config.after(:suite) do
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.

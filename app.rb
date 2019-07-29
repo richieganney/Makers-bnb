@@ -1,4 +1,6 @@
 require 'sinatra/base'
+require_relative './spec/database_connection_setup'
+
 # require 'sinatra/flash'
 
 # draws on the Sinatra base for the app
