@@ -9,5 +9,12 @@ class ApplicationManager < Sinatra::Base
     erb(:index)
   end
 
+  get '/spaces/add' do
+    erb :add_space
+  end
+
+  get 'users/new' do
+    erb :register
+  end
   run! if app_file == $0
 end
