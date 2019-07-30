@@ -1,5 +1,4 @@
 require 'sinatra/base'
-require './lib/user'
 require './lib/spaces'
 require_relative './spec/database_connection_setup'
 
@@ -17,12 +16,8 @@ class ApplicationManager < Sinatra::Base
   end
 
   post '/spaces/add' do
-    result1 = DatabaseConnection.query(
-      "INSERT INTO users (first_name)
-       VALUES ('dan')
-       RETURNING user_id;"
-    )
-    Spaces.add(params[:address], params[:title], params[:description], params[:price_per_night], result1[0]['user_id'])
+    @user = session[:user]
+    Spaces.add(params[:address], params[:title], params[:description], params[:price_per_night], @user.user_id)
     redirect('/')
   end
 
