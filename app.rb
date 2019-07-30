@@ -37,6 +37,11 @@ class ApplicationManager < Sinatra::Base
     end
   end
 
+  post '/sessions/destroy' do
+    session.clear
+    redirect('/')
+  end
+
   post '/spaces/add' do
     @user = session[:user]
     Spaces.add(params[:address], params[:title], params[:description], params[:price_per_night], @user.user_id)

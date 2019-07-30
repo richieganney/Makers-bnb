@@ -8,9 +8,13 @@
   <body>
     <% if @user %>
       <h1> Welcome to MakersBnB, <%= @user.first_name %> </h1>
+      <form action="/sessions/destroy" method="post">
+      <input type="submit" value="Sign out" />
+    </form>
     <%else %>
       <h1> Welcome to MakersBnB </h1>
     <% end %>
+  <% if @user.nil? %>
   <center><h1><center>Sign up now!</center></h1><br><br>
   <form action="/users/new" method="post">
     <label for="sign-up-details"><br><br>
@@ -27,6 +31,7 @@
     <input type="submit" value="Submit">
   </form><br>
   <p> Already a user? click <a href='/sessions/new'>here</a></center></center>
+  <% end %>
   </body>
   <script src="src/interface.js" charset="utf-8"></script>
 </html>
