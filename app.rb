@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/user'
 require './lib/spaces'
 require_relative './spec/database_connection_setup'
 
