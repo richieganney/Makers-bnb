@@ -2,6 +2,7 @@ require 'sinatra/base'
 require './lib/user'
 require './lib/spaces'
 require_relative './spec/database_connection_setup'
+require './lib/user'
 
 # require 'sinatra/flash'
 
@@ -44,6 +45,21 @@ class ApplicationManager < Sinatra::Base
 
   get '/spaces/add' do
     erb :add_space
+  end
+
+  get '/spaces' do
+    @all_spaces = Spaces.all
+    erb :spaces
+  end
+
+  get '/register' do
+    erb :register
+  end
+
+  post '/users/new' do
+    user = User.add(email: params[:email], first_name: params[:first_name], last_name: params[:last_name], password: params[:password], mobile: params[:mobile])
+    session[:user] = user
+    redirect '/'
   end
 
   run! if app_file == $0

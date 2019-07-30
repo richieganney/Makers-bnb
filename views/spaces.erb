@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>All Spaces</title>
+  </head>
+  <body>
+    <a href="/users/sign_out">Sign out</a>
+    <a href="/requests">Requests</a>
+    <h1>Book a Space</h1>
+    <a href="/spaces/add">List a Space</a>
+    <form action="/spaces" method="post">
+      <label for="available_from">Available from:</label>
+      <input type="date" name="available_from" value="<%= Date.new %>"><br>
+      <label for="available_to">Available to:</label>
+      <input type="date" name="available_to" value="<%= Date.new %>"><br>
+      <input type="submit" name="submit" value="List Spaces">
+    </form>
+    <div>
+      <ul>
+        <% @all_spaces.each do |space| %>
+      <li id="space"> <%= "#{ space.title }" %><br>
+        <span id="description"> <%= "#{ space.description }" %></span>
+      </li>
+      <% end %>
+      </ul>
+
+    </div>
+
+  </body>
+</html>
