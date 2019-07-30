@@ -7,8 +7,6 @@ feature 'signing in' do
     fill_in('email', with: 'test@example.com')
     fill_in('password', with: 'testing123')
     click_button("Submit")
-    save_and_open_page
     expect(page).to have_content("Welcome back, Test")
   end
 end
-    
