@@ -6,6 +6,9 @@
     <title>Welcome to Makers BnB</title>
   </head>
   <body>
+    <% if @user %>
+      <h1> Welcome to MakersBnB, <%= @user.first_name %> </h1>
+    <% end %>
 
   </body>
   <script src="src/interface.js" charset="utf-8"></script>
