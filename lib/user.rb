@@ -1,4 +1,5 @@
 require 'pg'
+require 'bcrypt'
 require_relative 'database_connection'
 require_relative '../spec/database_connection_setup.rb'
 
@@ -15,8 +16,16 @@ class User
   end
 
   def self.add(email:, first_name:, last_name:, password:, mobile:)
+    encrypted_password = BCrypt::Password.create(password)
     result = DatabaseConnection.query("INSERT INTO users (email, first_name, last_name, password, mobile) VALUES('#{email}', 
-                                    '#{first_name}', '#{last_name}', '#{password}', '#{mobile}') RETURNING email, first_name, last_name, password, mobile;")
+                                    '#{first_name}', '#{last_name}', '#{encrypted_password}', '#{mobile}') RETURNING email, first_name, last_name, password, mobile;")
+    User.new(email: result[0]['email'], first_name: result[0]['first_name'], last_name: result[0]['last_name'], password: result[0]['password'], mobile: result[0]['mobile'])
+  end
+
+  def self.authenticate(email, password)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}';")
+    return unless result.any?
+    return unless BCrypt::Password.new(result[0]['password']) == password
     User.new(email: result[0]['email'], first_name: result[0]['first_name'], last_name: result[0]['last_name'], password: result[0]['password'], mobile: result[0]['mobile'])
   end
     

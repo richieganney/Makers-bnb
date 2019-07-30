@@ -9,7 +9,7 @@ gem 'rake'
 gem 'sinatra'
 
 # gem 'timecop'
-# gem 'bcrypt'
+gem 'bcrypt'
 # gem 'sinatra-flash'
 # gem 'sendgrid-ruby'
 

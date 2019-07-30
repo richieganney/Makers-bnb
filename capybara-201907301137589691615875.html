@@ -3,14 +3,11 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/css/style.css">
-    <title>Welcome to Makers BnB</title>
+    
+      <h1> Welcome to MakersBnB, Test </h1>
+    
   </head>
   <body>
-    <% if @user %>
-      <h1> Welcome to MakersBnB, <%= @user.first_name %> </h1>
-    <%else %>
-      <h1> Welcome to MakersBnB </h1>
-    <% end %>
   <center><h1><center>Sign up now!</center></h1><br><br>
   <form action="/users/new" method="post">
     <label for="sign-up-details"><br><br>
