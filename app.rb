@@ -26,6 +26,11 @@ class ApplicationManager < Sinatra::Base
     erb :add_space
   end
 
+  get '/spaces' do
+    @all_spaces = Spaces.all
+    erb :spaces
+  end
+
   get '/register' do
     erb :register
   end
