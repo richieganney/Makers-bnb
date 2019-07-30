@@ -7,7 +7,6 @@ feature 'register' do
   scenario 'allows a user to sign up to makers bnb' do
     visit('/')
     sign_up_as_test
-    click_button('Submit')
     expect(page).to have_content("Welcome to MakersBnB, Test")
   end
 end

@@ -67,5 +67,9 @@ class ApplicationManager < Sinatra::Base
     redirect '/'
   end
 
+  post '/requests/approve' do
+    
+  end
+
   run! if app_file == $0
 end
