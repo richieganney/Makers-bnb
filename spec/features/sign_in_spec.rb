@@ -8,7 +8,6 @@ feature 'signing in' do
     fill_in('password', with: 'testing123')
     click_button("Submit")
     save_and_open_page
-    expect(page).to have_content("Welcome back, Test")
+    expect(page).to have_content("Welcome to MakersBnB, Test")
   end
 end
-    
