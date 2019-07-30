@@ -79,6 +79,22 @@
         1,
         null
       ],
+      "/Users/Ganney/Projects/Portfolio/week6/Makers-bnb/spec/features/sign_in_spec.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
       "/Users/Ganney/Projects/Portfolio/week6/Makers-bnb/spec/features/view_spaces_spec.rb": [
 
       ],
@@ -125,34 +141,30 @@
         null,
         null,
         null,
-        null
-      ],
-      "/Users/Ganney/Projects/Portfolio/week6/Makers-bnb/lib/user.rb": [
+        1,
         1,
         1,
         1,
         null,
         1,
         null,
+        null,
+        1,
         1,
         null,
         1,
-        2,
-        2,
-        2,
-        2,
-        2,
         null,
         null,
         1,
-        2,
+        1,
         null,
-        2,
+        1,
+        null,
         null,
         null,
         null
       ]
     },
-    "timestamp": 1564475982
+    "timestamp": 1564483080
   }
 }
