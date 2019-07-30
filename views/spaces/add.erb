@@ -3,23 +3,33 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/style.css">
     <title>List your space with Makers BnB</title>
   </head>
   <body>
-    <div id="container">
-      <h1>List a space</h1>
-      <p>Welcome to makers Bnb, please list your space so others can stay.</p>
-      <form action="/spaces/add" method="post">
-        <input type="text" name="title" placeholder="Enter the name of your listing"><br>
-        <textarea name="description" rows="8" cols="80" maxlength="360" placeholder="Enter a description of your space"></textarea><br>
-        <input type="text" name="address" placeholder="Enter an address"><br>
-        <input type="text" name="price_per_night" placeholder="Please enter how much per night"><br>
-        <label for="available_from">Available from:</label>
-        <input type="date" name="available_from" value="<%= Date.new %>"><br>
-        <label for="available_to">Available to:</label>
-        <input type="date" name="available_to" value="<%= Date.new %>"><br>
-        <input type="submit" name="submit" value="List my space"><br>
-      </form>
+
+    <div id="body-container">
+      <div id="header">
+
+      </div>
+      <div id="left-third">
+        <h1>List a space</h1>
+        <p>Welcome to makers Bnb, please list your space so others can stay.</p>
+        <form action="/spaces/add" method="post">
+          <input type="text" name="title" placeholder="Enter the name of your listing"><br>
+          <textarea name="description" rows="8" cols="80" maxlength="360" placeholder="Enter a description of your space"></textarea><br>
+          <input type="text" name="address" placeholder="Enter an address"><br>
+          <input type="text" name="price_per_night" placeholder="Please enter how much per night"><br>
+          <label for="available_from">Available from:</label>
+          <input type="date" name="available_from" value="<%= "#{ Date.new }" %>"><br>
+          <label for="available_to">Available to:</label>
+          <input type="date" name="available_to" value="<%= "#{ Date.new }" %>"><br>
+          <input type="submit" name="submit" value="List my space">
+        </form>
+      </div>
+      <div id="footer">
+
+      </div>
     </div>
   </body>
 </html>

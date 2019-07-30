@@ -2,34 +2,44 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/style.css">
     <title>All Spaces</title>
   </head>
   <body>
-    <a href="/users/sign_out">Sign out</a>
-    <a href="/requests">Requests</a>
-    <h1>Book a Space</h1>
-    <a href="/spaces/add">List a Space</a>
-    <form action="/spaces" method="post">
-      <h3>When do you want to go?</h3>
-      <label for="available_from">Check in:</label>
-      <input type="date" name="available_from" value="<%= Date.new %>">
-      <label for="available_to">Check out:</label>
-      <input type="date" name="available_to" value="<%= Date.new %>"><br>
-      <input type="submit" name="submit" value="List Spaces">
-    </form>
-    <div>
-      <ul>
-        <% @all_spaces.each do |space| %>
-          <li id="space"> <h2><%= "#{ space.title }" %></h2>
-            <span id="description"> <%= "#{ space.description }" %></span>
-            <form action="/spaces/<%= "#{ space.space_id }" %>" method="get">
-              <input type="submit" value="view" />
-            </form>
-          </li><br>
-        <% end %>
-      </ul>
+    <div id="header">
+      <a href="/users/sign_out">Sign out</a>
+      <a href="/requests">Requests</a>
+    </div>
+    <div id="body-container">
+      <div id="left-third">
+
+        <h1>Book a Space</h1>
+        <a href="/spaces/add">List a Space</a>
+        <form action="/spaces" method="post">
+          <h3>When do you want to go?</h3>
+          <label for="available_from">Check in:</label>
+          <input type="date" name="available_from" value="<%= Date.new %>">
+          <label for="available_to">Check out:</label>
+          <input type="date" name="available_to" value="<%= Date.new %>"><br>
+          <input type="submit" name="submit" value="List Spaces">
+        </form>
+        <div>
+          <ul>
+            <% @all_spaces.each do |space| %>
+              <li id="space"> <h2><%= "#{ space.title }" %></h2>
+                <span id="description"> <%= "#{ space.description }" %></span>
+                <form action="/spaces/<%= "#{ space.space_id }" %>" method="get">
+                  <input type="submit" value="view" />
+                </form>
+              </li><br>
+            <% end %>
+          </ul>
+
+        </div>
+      </div>
+      </div>
+    <div id="footer">
 
     </div>
-
   </body>
 </html>
