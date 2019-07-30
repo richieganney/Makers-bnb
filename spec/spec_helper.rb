@@ -13,7 +13,7 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-ENV['ENVIRONMENT'] = 'test' 
+ENV['ENVIRONMENT'] = 'test'
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara/rspec'
@@ -37,7 +37,6 @@ RSpec.configure do |config|
   config.before(:each) do
     # run the truncate command on both tables in the test database for us
 
-    puts 'running setup methods ...'
   end
 
   config.after(:suite) do
