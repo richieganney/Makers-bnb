@@ -1,8 +1,11 @@
 require 'spaces'
 require 'database_connection'
+require_relative '../test_helper'
 
 describe Spaces do
-  
+  before(:each) do
+    test_helper
+  end
   describe '.all' do
     it 'returns all spaces' do
       DatabaseConnection.query("INSERT INTO spaces (title) VALUES('Test Listing');")
