@@ -19,10 +19,13 @@
     <div>
       <ul>
         <% @all_spaces.each do |space| %>
-      <li id="space"> <%= "#{ space.title }" %><br>
-        <span id="description"> <%= "#{ space.description }" %></span>
-      </li>
-      <% end %>
+          <li id="space"> <h2><%= "#{ space.title }" %></h2>
+            <span id="description"> <%= "#{ space.description }" %></span>
+            <form action="/spaces/<%= "#{ space.space_id }" %>" method="get">
+              <input type="submit" value="view" />
+            </form>
+          </li><br>
+        <% end %>
       </ul>
 
     </div>
