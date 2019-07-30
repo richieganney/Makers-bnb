@@ -72,5 +72,9 @@ class ApplicationManager < Sinatra::Base
     erb :"spaces/book"
   end
 
+  post '/request/create' do
+    
+  end
+
   run! if app_file == $0
 end

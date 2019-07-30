@@ -10,9 +10,10 @@
     <h1>Book a Space</h1>
     <a href="/spaces/add">List a Space</a>
     <form action="/spaces" method="post">
-      <label for="available_from">Available from:</label>
-      <input type="date" name="available_from" value="<%= Date.new %>"><br>
-      <label for="available_to">Available to:</label>
+      <h3>When do you want to go?</h3>
+      <label for="available_from">Check in:</label>
+      <input type="date" name="available_from" value="<%= Date.new %>">
+      <label for="available_to">Check out:</label>
       <input type="date" name="available_to" value="<%= Date.new %>"><br>
       <input type="submit" name="submit" value="List Spaces">
     </form>
