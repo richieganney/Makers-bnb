@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require './lib/spaces'
 require_relative './spec/database_connection_setup'
+require './lib/user'
 
 # require 'sinatra/flash'
 

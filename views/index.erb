@@ -6,15 +6,10 @@
     <title>Welcome to Makers BnB</title>
   </head>
   <body>
-    <div id="container">
-      <ul>
-        <%= @listings.first.title %>
-      </ul>
-    </div>
-    <input type="date" name="dates">
     <% if @user %>
       <h1> Welcome to MakersBnB, <%= @user.first_name %> </h1>
     <% end %>
+    
   </body>
   <script src="src/interface.js" charset="utf-8"></script>
 </html>

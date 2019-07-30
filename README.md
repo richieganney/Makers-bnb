@@ -40,7 +40,7 @@ MVP
 
 As a seller,
 So I can rent my space out,
-I want to list my space on the webpage
+I want to list my space on the webpage ✅
 
 As a buyer,
 So I can stay somewhere for the night,
