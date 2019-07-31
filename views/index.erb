@@ -6,35 +6,58 @@
     <title>Welcome to Makers BnB</title>
   </head>
   <body>
-    <% if @user %>
-      <h1> Welcome to MakersBnB, <%= @user.first_name %> </h1>
-      <form action="/sessions/destroy" method="post">
-        <input type="submit" value="Sign out" />
-      </form>
-      <form action="/spaces" method="get">
-        <input type="submit" value="Spaces" />
-      </form>
-    <%else %>
-      <h1> Welcome to MakersBnB </h1>
+    <div id="home-container">
+      <% if @user %>
+
+        <div id="welcome-header">
+          <div id="welcome-hello">
+            <h2> Welcome to MakersBnB, <%= @user.first_name %> </h2>
+          </div>
+        </div>
+        <div id="welcome-picture">
+          <img id="welcome-image" src="images/adventure.jpg" alt="Welcome to Makers BnB">
+        </div>
+        <div id="welcome-menu">
+          <div id="left-choice">
+            <center>
+            <form id="sign-out" action="/sessions/destroy" method="post">
+              <input type="submit" name="sign_out" value="Sign out" />
+            </form>
+            </center>
+          </div>
+          <div id="right-choice">
+            <center>
+            <form id="spaces" action="/spaces" method="get">
+              <input type="submit" name="spaces" value="Spaces" />
+            </form>
+            </center>
+          </div>
+        </div>
+      <%else %>
+        <h1> Welcome to MakersBnB </h1>
+      <% end %>
+    <% if @user.nil? %>
+    <center><h1><center>Sign up now!</center></h1><br><br>
+    <form action="/users/new" method="post">
+      <label for="sign-up-details"><br>
+      First Name:
+      <input type="text" name="first_name" required><br>
+      Last Name:
+      <input type="text" name="last_name" required><br>
+      Email:
+      <input type="text" name="email" required><br>
+      Mobile Number:
+      <input type="text" name="mobile" required><br>
+      Password
+      <input type="password" name="password" required><br>
+      <input type="submit" value="Submit">
+    </form><br>
+    <p> Already a user? click <a href='/sessions/new'>here</a></center></center>
     <% end %>
-  <% if @user.nil? %>
-  <center><h1><center>Sign up now!</center></h1><br><br>
-  <form action="/users/new" method="post">
-    <label for="sign-up-details"><br><br>
-    First Name:
-    <input type="text" name="first_name" required><br><br>
-    Last Name:
-    <input type="text" name="last_name" required><br><br>
-    email
-    <input type="text" name="email" required><br><br>
-    Mobile Number:
-    <input type="text" name="mobile" required><br><br>
-    Password
-    <input type="password" name="password" required><br><br>
-    <input type="submit" value="Submit">
-  </form><br>
-  <p> Already a user? click <a href='/sessions/new'>here</a></center></center>
-  <% end %>
+    </div>
+    <div id="footer">
+      <h3>© Makers BnB</h3>
+    </div>
   </body>
   <script src="src/interface.js" charset="utf-8"></script>
 </html>
