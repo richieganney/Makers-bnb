@@ -52,7 +52,7 @@ I want to register for an account ✅
 
 As a user,
 So I can use the website,
-I want to be able to log in and out.
+I want to be able to log in and out. ✅
 
 As a buyer,
 So I can go on mental holiday's

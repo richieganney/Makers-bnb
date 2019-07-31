@@ -11,6 +11,16 @@ class ApplicationManager < Sinatra::Base
 
   enable :sessions
 
+  get '/register' do
+    erb :register
+  end
+
+  post '/users/new' do
+    user = User.add(email: params[:email], first_name: params[:first_name], last_name: params[:last_name], password: params[:password], mobile: params[:mobile])
+    session[:user] = user
+    redirect '/'
+  end
+
   get '/' do
     @user = session[:user]
     erb(:index)
@@ -49,22 +59,21 @@ class ApplicationManager < Sinatra::Base
   end
 
   get '/spaces/add' do
-    erb :add_space
+    erb :"spaces/add"
   end
 
   get '/spaces' do
     @all_spaces = Spaces.all
-    erb :spaces
+    erb :"spaces/spaces"
   end
 
-  get '/register' do
-    erb :register
+  get '/spaces/:space_id' do
+    @space = Spaces.find(params[:space_id])
+    erb :"spaces/book"
   end
 
-  post '/users/new' do
-    user = User.add(email: params[:email], first_name: params[:first_name], last_name: params[:last_name], password: params[:password], mobile: params[:mobile])
-    session[:user] = user
-    redirect '/'
+  post '/request/create' do
+    
   end
 
   post '/requests/approve' do
