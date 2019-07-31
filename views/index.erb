@@ -52,20 +52,12 @@
       <input type="password" name="password" required><br>
       <input type="submit" value="Submit">
     </form><br>
-    <p> Already a user? click <a href='/sessions/new'>here</a></center></center>
+    <p> Already a user? click <a href='/sessions/new'>here</a></center>
     <% end %>
     </div>
     <div id="footer">
       <h3>© Makers BnB</h3>
     </div>
-    <% flash.keys.each do |type| %>
-      <div data-alert class="flash <%= type %> alert-box radius">
-        <%= flash[type] %>
-        <a href="#" class="close">&times;</a>
-      </div>
-    <% end %>
   </body>
   <script src="src/interface.js" charset="utf-8"></script>
 </html>
-
-<%= flash[:notice] %>

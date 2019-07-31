@@ -4,9 +4,7 @@ require './lib/spaces'
 require './lib/request'
 require_relative './spec/database_connection_setup'
 require './lib/user'
-require 'sinatra/flash'
 
-# require 'sinatra/flash'
 
 # draws on the Sinatra base for the app
 class ApplicationManager < Sinatra::Base
@@ -75,7 +73,7 @@ class ApplicationManager < Sinatra::Base
   end
 
   post '/requests/approve' do
-    
+
   end
 
   run! if app_file == $0
