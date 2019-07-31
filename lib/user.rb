@@ -30,4 +30,10 @@ class User
     User.new(email: result[0]['email'], first_name: result[0]['first_name'], last_name: result[0]['last_name'], password: result[0]['password'], mobile: result[0]['mobile'], user_id: result[0]['user_id'])
   end
 
+  def self.find(user_id)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE user_id = #{user_id};")
+    User.new(email: result[0]['email'], first_name: result[0]['first_name'], last_name: result[0]['last_name'], password: result[0]['password'], mobile: result[0]['mobile'], user_id: result[0]['user_id'])
+
+  end
+
 end

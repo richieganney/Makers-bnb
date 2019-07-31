@@ -17,10 +17,19 @@
       <div class="row">
         <div class="column">
           <p>Requests I've made</p>
+          <p><% @user.user_id %></p>
+          <p><% @requests_made_info.length %></p>
+          <% @requests_made_info.each do |info| %>
+          <div id="list-element">
+            <div id="space-footer">
+              <h2><%= "#{ info["space_title"] }" %></h2>
+              <h2><%= "#{ info["space_host"] }" %></h2>
+            </div>
+            <% end %>
         </div>
         <div class="column">
           <p>Requests I've received</p>
-          
+
         </div>
       </div>
 

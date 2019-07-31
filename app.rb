@@ -64,11 +64,27 @@ class ApplicationManager < Sinatra::Base
   end
 
   post '/request/create' do
-    
+
   end
 
   post '/requests/approve' do
-    
+
+  end
+
+  get '/requests' do
+    @user = session[:user]
+    @requests_received_by_user = Request.all_user_received(@user.user_id)
+    @requests_made_by_user = Request.all_user_sent(@user.user_id)
+    @requests_received_info = []
+    @requests_received_by_user.each do |request|
+      @requests_received_info.push({"space_title" => "#{Spaces.find(request.space).title}", "space_guest" => "#{User.find(request.guest).first_name}" "#{User.find(request.guest).last_name}", "approved" => request.approved})
+    end
+    @requests_made_info = []
+    @requests_made_by_user.each do |request|
+      @requests_made_info.push({"space_title" => "#{Spaces.find(request.space).title}", "space_host" => "#{User.find(request.host).first_name}" "#{User.find(request.host).last_name}", "approved" => request.approved})
+    end
+
+    erb(:requests)
   end
 
   run! if app_file == $0
