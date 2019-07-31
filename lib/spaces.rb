@@ -24,6 +24,7 @@ class Spaces
                 price_per_night: 'price_per_night',
                 title: space['title'], owner: space['owner'], space_id: space['space_id'],
                 available_from: space['available_from'], available_to: space['available_to'])}
+
   end
 
   def self.add(address, title, description, price_per_night, user_id, available_from, available_to)
