@@ -5,12 +5,12 @@ require './lib/request'
 require_relative './spec/database_connection_setup'
 require './lib/user'
 
-# require 'sinatra/flash'
 
 # draws on the Sinatra base for the app
 class ApplicationManager < Sinatra::Base
 
   enable :sessions
+  # register Sinatra::Flash
 
   get '/' do
     @user = session[:user]
@@ -45,7 +45,8 @@ class ApplicationManager < Sinatra::Base
 
   post '/spaces/add' do
     @user = session[:user]
-    Spaces.add(params[:address], params[:title], params[:description], params[:price_per_night], @user.user_id)
+    Spaces.add(params[:address], params[:title], params[:description],
+           params[:price_per_night], @user.user_id, params[:available_from], params[:available_to])
     redirect('/')
   end
 
@@ -62,9 +63,14 @@ class ApplicationManager < Sinatra::Base
     @space = Spaces.find(params[:space_id])
     erb :"spaces/book"
   end
-
-  post '/request/create' do
-
+  
+  post '/request/create/:space_id' do
+    @guest = session[:user]
+    @space = Spaces.find(params[:space_id])
+    @host = @space.owner
+    Request.create(guest: @guest.user_id, host: @host, space: @space.space_id, requested_date: params[:requested_date])
+    redirect('/')
+    # flash[:notice] = 'Thank you, Your request has been sent!'
   end
 
   post '/requests/approve' do
@@ -83,7 +89,6 @@ class ApplicationManager < Sinatra::Base
     @requests_made_by_user.each do |request|
       @requests_made_info.push({"space_title" => "#{Spaces.find(request.space).title}", "space_host" => "#{User.find(request.host).first_name}" "#{User.find(request.host).last_name}", "approved" => request.approved})
     end
-
     erb(:requests)
   end
 

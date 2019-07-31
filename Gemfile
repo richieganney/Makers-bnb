@@ -10,7 +10,7 @@ gem 'sinatra'
 
 # gem 'timecop'
 gem 'bcrypt'
-# gem 'sinatra-flash'
+gem 'sinatra-flash'
 # gem 'sendgrid-ruby'
 
 group :test do
