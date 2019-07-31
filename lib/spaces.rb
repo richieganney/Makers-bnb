@@ -4,7 +4,8 @@ require_relative '../spec/database_connection_setup.rb'
 
 class Spaces
 
-  attr_reader :space_id, :address, :title, :description, :price_per_night, :owner, :available_from, :available_to, :booked_nights
+  attr_reader :space_id, :address, :title, :description, :price_per_night, :owner, :available_from, :available_to
+  attr_accessor :booked_nights
 
   def initialize(space_id:, address:, title:, description:, price_per_night:, owner:, available_from:, available_to:, booked_nights: nil)
     @address = address
@@ -44,6 +45,17 @@ class Spaces
     Spaces.new(space_id: result[0]['space_id'], address: result[0]['address'], title: result[0]['title'],
     description: result[0]['description'], price_per_night: result[0]['price_per_night'], owner: result[0]['owner'],
     available_from: result[0]['available_from'], available_to: result[0]['available_to'], booked_nights: result[0]['booked_nights'])
+  end
+
+  def update_booked_nights(bookedNights, space_id)
+    space = Spaces.find(space_id)
+    if space.booked_nights.nil?
+      space.booked_nights = {}
+      space.booked_nights.store(bookedNights)
+    else
+      space.booked_nights.store(bookedNights)
+    end
+    DatabaseConnection.query("UPDATE spaces SET booked_nights = #{space.booked_nights} WHERE space_id = #{space_id};")
   end
 
 end
