@@ -33,6 +33,20 @@ class Request
     Request.new(request_id: result[0]['request_id'], guest: guest, host: host, space: space, approved: nil)
   end
 
+  def self.all_user_received(host_id)
+    result = DatabaseConnection.query("SELECT * FROM requests WHERE host = #{host_id};")
+    array_of_results = []
+    result.map { |request| Request.new(request_id: request['request_id'],guest: request['guest'],host: request['host'],space: request['space'],approved: request['approved'])
+    }
+  end
+
+  def self.all_user_sent(guest_id)
+    result = DatabaseConnection.query("SELECT * FROM requests WHERE guest = #{guest_id};")
+    array_of_results = []
+    result.map { |request| Request.new(request_id: request['request_id'],guest: request['guest'],host: request['host'],space: request['space'],approved: request['approved'])
+    }
+  end
+
   def convert_sql_to_bool(sql_input)
     if sql_input == "t"
       return true
