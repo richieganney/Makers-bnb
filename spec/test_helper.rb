@@ -25,6 +25,24 @@ def setup_sample_host
   )
 end
 
+def setup_2_fake_users_1_fake_space
+  fakeuser1 = DatabaseConnection.query(
+    "INSERT INTO users (first_name)
+     VALUES ('dan')
+     RETURNING user_id;"
+  )
+  fakeuser2 = DatabaseConnection.query(
+    "INSERT INTO users (first_name)
+     VALUES ('james')
+     RETURNING user_id;"
+  )
+  fakespace1 = DatabaseConnection.query(
+    "INSERT INTO spaces (title)
+     VALUES ('cool')
+     RETURNING space_id;"
+  )
+end
+
 def setup_sample_space(sample_host = setup_sample_host)
   DatabaseConnection.query(
     "INSERT INTO spaces (title, owner)
