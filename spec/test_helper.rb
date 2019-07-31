@@ -50,3 +50,9 @@ def setup_sample_space(sample_host = setup_sample_host)
      RETURNING space_id;"
   )
 end
+
+def insert_two_booked_nights(space_id)
+  DatabaseConnection.query(
+    "UPDATE spaces SET booked_nights = '{2019-07-31, 2019-08-01}' WHERE space_id = #{space_id};"
+  )
+end

@@ -4,9 +4,9 @@ require_relative '../spec/database_connection_setup.rb'
 
 class Spaces
 
-  attr_reader :space_id, :address, :title, :description, :price_per_night, :owner, :available_from, :available_to
+  attr_reader :space_id, :address, :title, :description, :price_per_night, :owner, :available_from, :available_to, :booked_nights
 
-  def initialize(space_id:, address:, title:, description:, price_per_night:, owner:, available_from:, available_to:)
+  def initialize(space_id:, address:, title:, description:, price_per_night:, owner:, available_from:, available_to:, booked_nights: nil)
     @address = address
     @title = title
     @description = description
@@ -15,6 +15,7 @@ class Spaces
     @owner = owner
     @available_from = available_from
     @available_to = available_to
+    @booked_nights = booked_nights
   end
 
   def self.all
@@ -23,7 +24,7 @@ class Spaces
                 description: space['description'],
                 price_per_night: 'price_per_night',
                 title: space['title'], owner: space['owner'], space_id: space['space_id'],
-                available_from: space['available_from'], available_to: space['available_to'])}
+                available_from: space['available_from'], available_to: space['available_to'], booked_nights: space['booked_nights'])}
 
   end
 
@@ -42,7 +43,7 @@ class Spaces
     result = DatabaseConnection.query("SELECT * FROM spaces WHERE space_id = #{space_id};")
     Spaces.new(space_id: result[0]['space_id'], address: result[0]['address'], title: result[0]['title'],
     description: result[0]['description'], price_per_night: result[0]['price_per_night'], owner: result[0]['owner'],
-    available_from: result[0]['available_from'], available_to: result[0]['available_to'])
+    available_from: result[0]['available_from'], available_to: result[0]['available_to'], booked_nights: result[0]['booked_nights'])
   end
 
 end

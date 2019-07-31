@@ -1,5 +1,5 @@
 class Request
-  def initialize(request_id: , guest: , host: , space: , approved: nil, requested_date: )
+  def initialize(request_id: , guest: , host: , space: , approved: nil, requested_date:)
     @request_id = request_id
     @guest = guest
     @host = host
@@ -12,17 +12,19 @@ class Request
   def self.approve(request_id)
     result = DatabaseConnection.query("UPDATE requests SET approved = true
      WHERE request_id = #{request_id}
-     RETURNING request_id, guest, host, space, approved;"
+     RETURNING request_id, guest, host, space, approved, requested_date;"
     )
-    Request.new(request_id: result[0]["request_id"],guest: result[0]["guest"],host: result[0]["host"], space: result[0]["space"], approved: result[0]["approved"])
+    Request.new(request_id: result[0]["request_id"],guest: result[0]["guest"],
+                host: result[0]["host"], space: result[0]["space"], approved: result[0]["approved"], requested_date: result[0]['requested_date'])
   end
 
   def self.reject(request_id)
     result = DatabaseConnection.query("UPDATE requests SET approved = false
      WHERE request_id = #{request_id}
-     RETURNING request_id, guest, host, space, approved;"
+     RETURNING request_id, guest, host, space, approved, requested_date;"
     )
-    Request.new(request_id: result[0]["request_id"],guest: result[0]["guest"],host: result[0]["host"], space: result[0]["space"], approved: result[0]["approved"])
+    Request.new(request_id: result[0]["request_id"],guest: result[0]["guest"],
+                host: result[0]["host"], space: result[0]["space"], approved: result[0]["approved"], requested_date: result[0]['requested_date'])
   end
 
   def self.create(guest:, host:, space:, requested_date:)
@@ -37,14 +39,16 @@ class Request
   def self.all_user_received(host_id)
     result = DatabaseConnection.query("SELECT * FROM requests WHERE host = #{host_id};")
     array_of_results = []
-    result.map { |request| Request.new(request_id: request['request_id'],guest: request['guest'],host: request['host'],space: request['space'],approved: request['approved'])
+    result.map { |request| Request.new(request_id: request['request_id'],guest: request['guest'],
+                                       host: request['host'],space: request['space'],approved: request['approved'], requested_date: request['requested_date'])
     }
   end
 
   def self.all_user_sent(guest_id)
     result = DatabaseConnection.query("SELECT * FROM requests WHERE guest = #{guest_id};")
     array_of_results = []
-    result.map { |request| Request.new(request_id: request['request_id'],guest: request['guest'],host: request['host'],space: request['space'],approved: request['approved'])
+    result.map { |request| Request.new(request_id: request['request_id'],guest: request['guest'],
+                                      host: request['host'],space: request['space'],approved: request['approved'], requested_date: request['requested_date'])
     }
   end
 
