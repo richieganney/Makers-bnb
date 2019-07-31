@@ -45,7 +45,8 @@ class ApplicationManager < Sinatra::Base
 
   post '/spaces/add' do
     @user = session[:user]
-    Spaces.add(params[:address], params[:title], params[:description], params[:price_per_night], @user.user_id)
+    Spaces.add(params[:address], params[:title], params[:description],
+           params[:price_per_night], @user.user_id, params[:available_from], params[:available_to])
     redirect('/')
   end
 
@@ -67,13 +68,22 @@ class ApplicationManager < Sinatra::Base
     @guest = session[:user]
     @space = Spaces.find(params[:space_id])
     @host = @space.owner
-    Request.create(guest: @guest.user_id, host: @host, space: @space.space_id)
+    Request.create(guest: @guest.user_id, host: @host, space: @space.space_id, requested_date: params[:requested_date])
     redirect('/')
     # flash[:notice] = 'Thank you, Your request has been sent!'
   end
 
   post '/requests/approve' do
 
+  end
+
+  get '/date' do
+    erb :date
+  end
+
+  post '/date/save' do
+    @date = params[:date]
+    erb :result
   end
 
   run! if app_file == $0
