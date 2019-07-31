@@ -4,6 +4,7 @@ require './lib/spaces'
 require './lib/request'
 require_relative './spec/database_connection_setup'
 require './lib/user'
+require 'sinatra/flash'
 
 # require 'sinatra/flash'
 
@@ -11,6 +12,7 @@ require './lib/user'
 class ApplicationManager < Sinatra::Base
 
   enable :sessions
+  # register Sinatra::Flash
 
   get '/' do
     @user = session[:user]
@@ -63,8 +65,13 @@ class ApplicationManager < Sinatra::Base
     erb :"spaces/book"
   end
 
-  post '/request/create' do
-    
+  post '/request/create/:space_id' do
+    @guest = session[:user]
+    @space = Spaces.find(params[:space_id])
+    @host = @space.owner
+    Request.create(guest: @guest.user_id, host: @host, space: @space.space_id)
+    redirect('/')
+    # flash[:notice] = 'Thank you, Your request has been sent!'
   end
 
   post '/requests/approve' do

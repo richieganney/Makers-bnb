@@ -58,6 +58,14 @@
     <div id="footer">
       <h3>© Makers BnB</h3>
     </div>
+    <% flash.keys.each do |type| %>
+      <div data-alert class="flash <%= type %> alert-box radius">
+        <%= flash[type] %>
+        <a href="#" class="close">&times;</a>
+      </div>
+    <% end %>
   </body>
   <script src="src/interface.js" charset="utf-8"></script>
 </html>
+
+<%= flash[:notice] %>
