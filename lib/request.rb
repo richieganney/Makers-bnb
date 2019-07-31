@@ -24,6 +24,15 @@ class Request
     Request.new(request_id: result[0]["request_id"],guest: result[0]["guest"],host: result[0]["host"], space: result[0]["space"], approved: result[0]["approved"])
   end
 
+  def self.create(guest:, host:, space:)
+    result = DatabaseConnection.query(
+      "INSERT INTO requests (guest, host, space)
+      VALUES(#{guest}, #{host}, #{space})
+      RETURNING request_id;"
+    )
+    Request.new(request_id: result[0]['request_id'], guest: guest, host: host, space: space, approved: nil)
+  end
+
   def convert_sql_to_bool(sql_input)
     if sql_input == "t"
       return true
