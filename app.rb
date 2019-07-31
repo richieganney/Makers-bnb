@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require './lib/user'
 require './lib/spaces'
+require './lib/request'
 require_relative './spec/database_connection_setup'
 require './lib/user'
 
@@ -10,16 +11,6 @@ require './lib/user'
 class ApplicationManager < Sinatra::Base
 
   enable :sessions
-
-  get '/register' do
-    erb :register
-  end
-
-  post '/users/new' do
-    user = User.add(email: params[:email], first_name: params[:first_name], last_name: params[:last_name], password: params[:password], mobile: params[:mobile])
-    session[:user] = user
-    redirect '/'
-  end
 
   get '/' do
     @user = session[:user]
