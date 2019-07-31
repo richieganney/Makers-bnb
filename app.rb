@@ -47,7 +47,7 @@ class ApplicationManager < Sinatra::Base
     end
   end
 
-  post '/sessions/destroy' do
+  get '/sessions/destroy' do
     session.clear
     redirect('/')
   end
@@ -73,7 +73,7 @@ class ApplicationManager < Sinatra::Base
   end
 
   post '/request/create' do
-    
+
   end
 
   run! if app_file == $0
