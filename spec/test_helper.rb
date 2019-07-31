@@ -5,9 +5,8 @@ require './lib/requests'
 
 def test_helper
   # this clears the spaces and users table in the test environment for us
-
+#   DatabaseConnection.query('TRUNCATE spaces, users CASCADE;')
   DatabaseConnection.query('TRUNCATE spaces, users, requests;')
-
 end
 
 def setup_sample_guest
