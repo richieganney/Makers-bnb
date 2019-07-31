@@ -1,6 +1,6 @@
 require 'spaces'
 require 'database_connection'
-require 'requests'
+require 'request'
 require_relative '../test_helper'
 
 describe Request do

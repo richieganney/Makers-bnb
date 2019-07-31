@@ -1,7 +1,7 @@
 require_relative './database_connection_setup'
 require './lib/spaces'
 require './lib/database_connection'
-require './lib/requests'
+require './lib/request'
 
 def test_helper
   # this clears the spaces and users table in the test environment for us
