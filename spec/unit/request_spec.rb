@@ -15,17 +15,17 @@ describe Request do
 
     it 'returns a request when a new one is made' do
       # methods contained in testhelper.rb
-      sample_host = setup_sample_host
-      sample_space = setup_sample_space
-      sample_guest = setup_sample_guest
-      request = Request.create(guest: sample_guest[0]['user_id'], host: sample_host[0]['user_id'], space: sample_space[0]['space_id'])
-      expect(request.guest).to eq(sample_guest[0]['user_id'])
-      expect(request.space).to eq(sample_space[0]['space_id'])
-      expect(request.host).to eq(sample_host[0]['user_id'])
+      sample_host = User.add(email: 'test@example.com', first_name: 'Test', last_name: 'Example', password: 'testing123', mobile: '123456789')
+      sample_space = Spaces.add("123 fake street", "title", "description" , 100 ,sample_host.user_id,"2018-07-19", "2019-07-19" )
+      sample_guest = User.add(email: 'test2@example.com', first_name: 'Test2', last_name: 'Example2', password: 'testing123', mobile: '123456789')
+      request = Request.create(guest: sample_guest, host: sample_host, space: sample_space, requested_date: "2019-9-24")
+      expect(request.guest).to eq(sample_guest)
+      expect(request.space).to eq(sample_space)
+      expect(request.host).to eq(sample_host)
     end
   end
 
-  describe "#accept" do
+  describe "#approve" do
     it "changes the approval status of the request to true" do
         fakeuser1 = setup_sample_host
         fakeuser2 = setup_sample_guest
@@ -36,7 +36,7 @@ describe Request do
         expect(changed_request.approved).to eq true
     end
   end
-  
+
   describe "#reject" do
     it "changes the approval status of the request to false" do
       fakeuser1 = setup_sample_host
@@ -78,7 +78,7 @@ describe Request do
           '#{fakeuser1[0]['user_id']}', '#{fakeuser3[0]['user_id']}', '#{fakespace1[0]['space_id']}') RETURNING request_id, approved;")
       requests_received_by_user2 = Request.all_user_received(fakeuser2[0]["user_id"])
       expect(requests_received_by_user2.length).to eq 2
-      expect(requests_received_by_user2[0].host).to eq fakeuser2[0]["user_id"]
+      expect(requests_received_by_user2[0].host.user_id).to eq fakeuser2[0]["user_id"]
     end
   end
   describe "#all_user_sent" do
@@ -111,7 +111,7 @@ describe Request do
           '#{fakeuser1[0]['user_id']}', '#{fakeuser3[0]['user_id']}', '#{fakespace1[0]['space_id']}') RETURNING request_id, approved;")
       requests_sent_by_fakeuser1 = Request.all_user_sent(fakeuser1[0]["user_id"])
       expect(requests_sent_by_fakeuser1.length).to eq 2
-      expect(requests_sent_by_fakeuser1[0].guest).to eq fakeuser1[0]["user_id"]
+      expect(requests_sent_by_fakeuser1[0].guest.user_id).to eq fakeuser1[0]["user_id"]
     end
   end
 end
