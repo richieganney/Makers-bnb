@@ -57,7 +57,7 @@ class Spaces
     end
     result = '{' + space.booked_nights.join(', ') + '}'
 
-    DatabaseConnection.query("UPDATE spaces SET booked_nights = #{result} WHERE space_id = #{space_id};")
+    DatabaseConnection.query("UPDATE spaces SET booked_nights = '#{result}' WHERE space_id = #{space_id};")
   end
 
 end
