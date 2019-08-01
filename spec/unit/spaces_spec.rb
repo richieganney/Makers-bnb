@@ -36,4 +36,15 @@ describe Spaces do
       expect(space.booked_nights).to eq "{2019-07-31,2019-08-01}"
     end
   end
+  describe '#filter_by_date' do
+    it ' should return spaces whose availability listing contains the whole of the booking period' do
+      sample_space1 = setup_sample_space_with_available_dates('2019-10-01','2019-11-01')
+      sample_space2 = setup_sample_space_with_available_dates('2019-10-01','2019-12-01')
+      filtered_spaces = Spaces.filter_by_date('2019-10-6','2019-11-06')
+      expect(filtered_spaces.length).to eq 1
+      expect(filtered_spaces[0].space_id).to eq sample_space2[0]['space_id']
+      
+    end
+  end
+
 end
