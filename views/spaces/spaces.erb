@@ -32,16 +32,24 @@
         <p>Have a lovely space you'd like to share?</p>
         <a href="/spaces/add">List a Space</a>
         <form action="/spaces" method="post">
+          <% if @filtered_spaces.nil? %>
           <h3>When do you want to go?</h3>
+          <% end %>
+          <% if !(@filtered_spaces.nil?) %>
+          <h3>Showing properties available from <%=@start_date%> until <%=@end_date%></h3>
+          <% end %>
           <label for="available_from">Check in:</label>
+
           <input autocomplete="off" type="text" id="check_in" name="check_in" value="">
           <label for="available_to">Check out:</label>
           <input autocomplete="off" type="text" id="check_out" name="check_out" value=""><br><br>
+
           <input type="submit" name="submit" value="Filter properties available">
         </form>
       </div>
       <div id="right-third">
-          <% @all_spaces.each do |space| %>
+          <% spaces = (@filtered_spaces.nil? ? @all_spaces : @filtered_spaces)%>
+          <% spaces.each do |space| %>
           <div id="list-element">
             <div id="space-image">
               <img src="images/kitchen.jpg" alt="You could stay here">

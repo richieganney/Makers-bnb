@@ -76,7 +76,7 @@ I don't want to be shown unavailable nights
 
 As a buyer,
 So I can view properties that I can book,
-I want to list spaces available on the days I can travel
+I want to list spaces available on the days I can travel ✅
 
 As a buyer,
 So I can know whether my request can be made,
