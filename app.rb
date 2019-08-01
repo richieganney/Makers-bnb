@@ -4,11 +4,14 @@ require './lib/spaces'
 require './lib/request'
 require_relative './spec/database_connection_setup'
 require './lib/user'
+# require 'gon-sinatra'
+
 
 
 # draws on the Sinatra base for the app
 class ApplicationManager < Sinatra::Base
 
+  # register Gon::Sinatra
   enable :sessions
   # register Sinatra::Flash
 

@@ -2,6 +2,26 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+
+    <link rel=“stylesheet” href=“http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css” />
+    <script src=“http://code.jquery.com/jquery-1.9.1.js”></script>
+    <script src=“http://code.jquery.com/ui/1.10.3/jquery-ui.js”></script>
+
+    <script src="/src/interface.js"></script>
+    <script src="/src/jquery.js"></script>
+    
+
+    <script>
+      $( function() {
+        $( "#available_from" ).datepicker({
+          dateFormat : 'mm-dd-yy',
+        });
+        $( "#available_to" ).datepicker({
+          dateFormat : 'mm-dd-yy',
+        });
+      });
+    </script>
+
     <link rel="stylesheet" href="/css/style.css">
     <title>All Spaces</title>
   </head>
@@ -23,9 +43,9 @@
         <form action="/spaces" method="post">
           <h3>When do you want to go?</h3>
           <label for="available_from">Check in:</label>
-          <input type="date" name="available_from" value="<%= Date.new %>">
+          <input type="date" id="available_from" name="available_from" value="<%= Date.new %>">
           <label for="available_to">Check out:</label>
-          <input type="date" name="available_to" value="<%= Date.new %>"><br><br>
+          <input type="date" id="available_to" name="available_to" value="<%= Date.new %>"><br><br>
           <input type="submit" name="submit" value="Filter properties available">
         </form>
       </div>
