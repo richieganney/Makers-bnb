@@ -18,18 +18,48 @@
         <div class="column">
           <p>Requests I've made</p>
           <p><% @user.user_id %></p>
-          <p><% @requests_made_info.length %></p>
-          <% @requests_made_info.each do |info| %>
+          <p><% @requests_made_by_user.length %></p>
+          <% @requests_made_by_user.each do |request| %>
           <div id="list-element">
             <div id="space-footer">
-              <h2><%= "#{ info["space_title"] }" %></h2>
-              <h2><%= "#{ info["space_host"] }" %></h2>
+              <h2>Space:<%= "#{ request.space.title }" %></h2>
+              <h2>Host:<%= "#{ request.host.first_name} #{request.host.last_name}"  %></h2>
+              <h2>Date:<%= "#{ request.requested_date }" %></h2>
+              <% if request.approved.nil? %>
+              <h2>Status: pending </h2>
+              <% elsif request.approved %>
+              <h2>Status: approved </h2>
+              <% else %>
+              <h2>Status: denied </h2>
+              <% end %>
             </div>
             <% end %>
+
+          </div>
         </div>
         <div class="column">
           <p>Requests I've received</p>
-
+          <p><% @user.user_id %></p>
+          <p><% @requests_received_by_user.length %></p>
+          <% @requests_received_by_user.each do |request| %>
+          <div id="list-element">
+            <div id="space-footer">
+              <h2>space:<%= "#{ request.space.title }" %></h2>
+              <h2>guest:<%= "#{ request.guest.first_name} #{request.guest.last_name}"  %></h2>
+              <h2>date:<%= "#{ request.requested_date }" %></h2>
+              <h2>status:<%= "#{ request.approved }" %></h2>
+              <% if request.approved.nil? %>
+              <h2>Status: pending  <form action="/requests/approve/<%= request.request_id %>" method="post">
+                      <input type="submit" value="Approve" />
+                    </form></h2>
+              <% elsif request.approved %>
+              <h2>Status: approved </h2>
+              <% else %>
+              <h2>Status: denied </h2>
+              <% end %>
+            </div>
+            <% end %>
+          </div>
         </div>
       </div>
 
