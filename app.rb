@@ -73,11 +73,14 @@ class ApplicationManager < Sinatra::Base
     # flash[:notice] = 'Thank you, Your request has been sent!'
   end
 
-
   post '/requests/approve/:request_id' do
     Request.approve(params[:request_id])
     redirect('/requests')
+  end
 
+  post '/requests/deny/:request_id' do
+    Request.reject(params[:request_id])
+    redirect('/requests')
   end
 
   get '/requests' do

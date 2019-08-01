@@ -47,11 +47,14 @@
               <h2>space:<%= "#{ request.space.title }" %></h2>
               <h2>guest:<%= "#{ request.guest.first_name} #{request.guest.last_name}"  %></h2>
               <h2>date:<%= "#{ request.requested_date }" %></h2>
-              <h2>status:<%= "#{ request.approved }" %></h2>
               <% if request.approved.nil? %>
               <h2>Status: pending  <form action="/requests/approve/<%= request.request_id %>" method="post">
                       <input type="submit" value="Approve" />
-                    </form></h2>
+                    </form>
+                    <form action="/requests/deny/<%= request.request_id %>" method="post">
+                            <input type="submit" value="Deny" />
+                    </form>
+              </h2>
               <% elsif request.approved %>
               <h2>Status: approved </h2>
               <% else %>
