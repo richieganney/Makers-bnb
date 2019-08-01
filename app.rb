@@ -63,32 +63,30 @@ class ApplicationManager < Sinatra::Base
     @space = Spaces.find(params[:space_id])
     erb :"spaces/book"
   end
-  
+
   post '/request/create/:space_id' do
     @guest = session[:user]
     @space = Spaces.find(params[:space_id])
-    @host = @space.owner
-    Request.create(guest: @guest.user_id, host: @host, space: @space.space_id, requested_date: params[:requested_date])
+    @host = User.find(@space.owner)
+    Request.create(guest: @guest, host: @host, space: @space, requested_date: params[:requested_date])
     redirect('/')
     # flash[:notice] = 'Thank you, Your request has been sent!'
   end
 
-  post '/requests/approve' do
+  post '/requests/approve/:request_id' do
+    Request.approve(params[:request_id])
+    redirect('/requests')
+  end
 
+  post '/requests/deny/:request_id' do
+    Request.reject(params[:request_id])
+    redirect('/requests')
   end
 
   get '/requests' do
     @user = session[:user]
     @requests_received_by_user = Request.all_user_received(@user.user_id)
     @requests_made_by_user = Request.all_user_sent(@user.user_id)
-    @requests_received_info = []
-    @requests_received_by_user.each do |request|
-      @requests_received_info.push({"space_title" => "#{Spaces.find(request.space).title}", "space_guest" => "#{User.find(request.guest).first_name}" "#{User.find(request.guest).last_name}", "approved" => request.approved})
-    end
-    @requests_made_info = []
-    @requests_made_by_user.each do |request|
-      @requests_made_info.push({"space_title" => "#{Spaces.find(request.space).title}", "space_host" => "#{User.find(request.host).first_name}" "#{User.find(request.host).last_name}", "approved" => request.approved})
-    end
     erb(:requests)
   end
 

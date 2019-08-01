@@ -8,7 +8,9 @@
   <body>
     <div id="header">
       <div id="links">
-        <a href="/users/sign_out">Sign out</a>
+          <form id="sign-out" action="/sessions/destroy" method="post">
+            <input id="sign-outid" type="submit" name="sign_out" value="Sign out" />
+          </form>
         <a href="/requests">Requests</a>
       </div>
     </div>

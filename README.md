@@ -60,11 +60,11 @@ I want to be able to request to book a space for a night ✅
 
 As a seller,
 So I can make dollar dollar bills,
-I want to be able to approve requests 
+I want to be able to approve requests ✅
 
 As a buyer,
 So I know I can go on holiday's
-I want to find out if my request was approved
+I want to find out if my request was approved ✅
 
 As a seller,
 So I can control availability,
@@ -73,5 +73,28 @@ I want to list dates that my space is available ✅
 As a buyer,
 So I cannot request an unavailable night,
 I don't want to be shown unavailable nights
+
+As a buyer,
+So I can view properties that I can book,
+I want to list spaces available on the days I can travel
+
+As a buyer,
+So I can know whether my request can be made,
+I want to see on the calendar what days have already been booked
+
+As a buyer,
+So I can see only dates the seller has made available,
+I want the calendar to show from the start of available dates to the end
+
+Nice to haves
+=============
+
+As a buyer,
+So I can request more than one day to book,
+I want to be able to specify a range of dates to request
+
+As a buyer,
+So I can see how much the stay will cost,
+I want to see the total for the days requested
 
 <!-- ✅ -->

@@ -23,7 +23,7 @@ describe Spaces do
          VALUES ('dan')
          RETURNING user_id;"
       )
-      newspace = Spaces.add("123 fake street", "title", "description" , 100 ,result1[0]['user_id'], '2019-07-31', '2019-08-01')
+      newspace = Spaces.add("123 fake street", "title", "description" , 100 ,result1[0]['user_id'],"2020-07-19", "2021-07-19" )
       expect(newspace.address).to eq  "123 fake street"
     end
   end
