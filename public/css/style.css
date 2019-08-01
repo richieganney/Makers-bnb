@@ -194,6 +194,10 @@ input[type=submit] {
   border-radius: 5px;
 }
 
+.dateNA {
+  background-color: red;
+}
+
 input[type=submit]:hover {
   border: #474747;
   background-color: #737373;

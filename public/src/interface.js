@@ -1,5 +1,8 @@
 
 $( document ).ready(function() {
+    if (document.getElementById("array1").value !== null) {
+      var array = document.getElementById("array1").value.substr(1).slice(0,-1).split(',');
+    }
 
     $( function() {
       $( "#check_in" ).datepicker({
@@ -20,12 +23,22 @@ $( document ).ready(function() {
     });
 
     $( function() {
+
+
       $( "#requested_date" ).datepicker({
-        dateFormat : 'yy-mm-dd',
-      });
+    dateFormat: 'dd-mm-yy',
+    beforeShowDay: function(date) {
+        var newDate = jQuery.datepicker.formatDate('yy-mm-dd', date);
+        console.log(array)
+        console.log(newDate);
+        if (array.includes(newDate)) {
+            return [false, "dateNA", ""];
+        } else {
+            return[true, "dateA", ""]
+        }
+    }
+    });
     });
 });
 
-//var array = document.getElementById("array1").value.substr(1).slice(0,-1).split(',');
 //use above line to retrieve array from the hidden field
-
