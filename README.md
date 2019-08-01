@@ -70,6 +70,24 @@ As a seller,
 So I can control availability,
 I want to list dates that my space is available
 
+As a buyer,
+So I can view properties that I can book,
+I want to list spaces available on the days I can travel
 
+As a buyer,
+So I can know whether my request can be made,
+I want to see on the calendar what days have already been booked
+
+As a buyer,
+So I can see only dates the seller has made available,
+I want the calendar to show from the start of available dates to the end
+
+As a buyer,
+So I can request more than one day to book,
+I want to be able to specify a range of dates to request
+
+As a buyer,
+So I can see how much the stay will cost,
+I want to see the total for the days requested
 
 <!-- ✅ -->
