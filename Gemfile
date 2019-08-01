@@ -12,6 +12,7 @@ gem 'sinatra'
 gem 'bcrypt'
 gem 'sinatra-flash'
 # gem 'sendgrid-ruby'
+# gem 'gon'
 
 group :test do
   gem 'capybara'

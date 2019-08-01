@@ -2,6 +2,12 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <script src="/src/jquery.js"></script>
+    <script src="/src/interface.js"></script>
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <link rel="stylesheet" href="/css/style.css">
     <title>All Spaces</title>
   </head>
@@ -33,9 +39,11 @@
           <h3>Showing properties available from <%=@start_date%> until <%=@end_date%></h3>
           <% end %>
           <label for="available_from">Check in:</label>
-          <input type="date" name="available_from" value="">
+
+          <input autocomplete="off" type="text" id="check_in" name="check_in" value="">
           <label for="available_to">Check out:</label>
-          <input type="date" name="available_to" value=""><br><br>
+          <input autocomplete="off" type="text" id="check_out" name="check_out" value=""><br><br>
+
           <input type="submit" name="submit" value="Filter properties available">
         </form>
       </div>

@@ -2,12 +2,17 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <script src="/src/interface.js"></script>
+    <script src="/src/jquery.js"></script>
+
+
     <link rel="stylesheet" href="/css/style.css">
     <title>All Spaces</title>
   </head>
   <body>
     <div id="header">
       <div id="links">
+<<<<<<< HEAD
           <form id="sign-out-link" action="/sessions/destroy" method="post">
             <input id="sign-outid" type="submit" name="sign_out" value="Sign out" />
           </form>
@@ -17,6 +22,12 @@
           <form class="spaces-link" action="/spaces" method="get">
             <input type="submit" name="submit" value="Spaces">
           </form>
+=======
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <a href="/users/sign_out">Sign out</a>
+        <a href="/requests">Requests</a>
+>>>>>>> b4cd72ddfe427548c1675b336b0e6735b40d124c
       </div>
     </div>
     <div id="body-container">

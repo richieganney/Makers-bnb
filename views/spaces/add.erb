@@ -3,6 +3,13 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <script src="/src/jquery.js"></script>
+    <script src="/src/interface.js"></script>
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
     <link rel="stylesheet" href="/css/style.css">
     <title>List your space with Makers BnB</title>
   </head>
@@ -31,9 +38,9 @@
           <input type="text" name="address" placeholder="Enter an address"><br>
           <input type="text" name="price_per_night" placeholder="Please enter how much per night"><br>
           <label for="available_from">Available from:</label>
-          <input type="date" name="available_from" value=""><br>
+          <input autocomplete="off" type="text" id="available_from" name="available_from" value=""><br>
           <label for="available_to">Available to:</label>
-          <input type="date" name="available_to" value=""><br>
+          <input autocomplete="off" type="text" id="available_to" name="available_to" value=""><br>
           <input type="submit" name="submit" value="List my space">
         </form>
       </div>
