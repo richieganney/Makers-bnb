@@ -19,7 +19,7 @@
       <p>£<%= @space.price_per_night %> per night</p>
       <p><%= @space.address %></p>
       <form action="/request/create/<%= "#{ @space.space_id }" %>" method="post">
-        <input type="date" name="requested_date" value="">
+        <input type="text" name="requested_date" value="">
         <input type="submit" name="submit" value="Request to Book">
       </form>
     </center>
