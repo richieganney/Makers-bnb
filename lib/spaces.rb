@@ -53,10 +53,10 @@ class Spaces
       space.booked_nights = []
       space.booked_nights.push(bookedNights)
     else
+      space.booked_nights = space.booked_nights.delete("{}").split(',')
       space.booked_nights.push(bookedNights)
     end
     result = '{' + space.booked_nights.join(', ') + '}'
-
     DatabaseConnection.query("UPDATE spaces SET booked_nights = '#{result}' WHERE space_id = #{space_id};")
   end
 
