@@ -50,13 +50,14 @@ class Spaces
   def update_booked_nights(bookedNights, space_id)
     space = Spaces.find(space_id)
     if space.booked_nights.nil?
-      space.booked_nights = {}
-      space.booked_nights.store(bookedNights)
+      space.booked_nights = []
+      space.booked_nights.push(bookedNights)
     else
-      space.booked_nights.store(bookedNights)
+      space.booked_nights.push(bookedNights)
     end
-    p space.booked_nights
-    # DatabaseConnection.query("UPDATE spaces SET booked_nights = #{space.booked_nights} WHERE space_id = #{space_id};")
+    result = '{' + space.booked_nights.join(', ') + '}'
+
+    DatabaseConnection.query("UPDATE spaces SET booked_nights = #{result} WHERE space_id = #{space_id};")
   end
 
 end

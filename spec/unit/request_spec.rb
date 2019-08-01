@@ -36,7 +36,7 @@ describe Request do
         expect(changed_request.approved).to eq true
     end
   end
-  
+
   describe "#reject" do
     it "changes the approval status of the request to false" do
       fakeuser1 = setup_sample_host
@@ -113,5 +113,7 @@ describe Request do
       expect(requests_sent_by_fakeuser1.length).to eq 2
       expect(requests_sent_by_fakeuser1[0].guest).to eq fakeuser1[0]["user_id"]
     end
+
+    
   end
 end
