@@ -113,5 +113,7 @@ describe Request do
       expect(requests_sent_by_fakeuser1.length).to eq 2
       expect(requests_sent_by_fakeuser1[0].guest.user_id).to eq fakeuser1[0]["user_id"]
     end
+
+    
   end
 end

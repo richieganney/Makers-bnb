@@ -1,5 +1,7 @@
+require_relative 'spaces'
+
 class Request
-  def initialize(request_id: , guest: , host: , space: , approved: nil, requested_date: )
+  def initialize(request_id: , guest: , host: , space: , approved: nil, requested_date:)
     @request_id = request_id
     @guest = guest
     @host = host
@@ -12,18 +14,24 @@ class Request
   def self.approve(request_id)
     result = DatabaseConnection.query("UPDATE requests SET approved = true
      WHERE request_id = #{request_id}
-     RETURNING request_id, guest, host, space, approved;"
+     RETURNING request_id, guest, host, space, approved, requested_date;"
     )
     host = User.find(result[0]["host"])
     guest = User.find(result[0]["guest"])
     space = Spaces.find(result[0]["space"])
-    Request.new(request_id: result[0]["request_id"],guest: guest,host: host, space: space, approved: result[0]["approved"], requested_date: result[0]['requested_date'])
+    request = Request.new(request_id: result[0]["request_id"],guest: guest,host: host, space: space, approved: result[0]["approved"], requested_date: result[0]['requested_date'])
+    Request.update_booked_nights(request.space.space_id, request.requested_date)
+  end
+
+  def self.update_booked_nights(space_id, booked_nights)
+    space = Spaces.find(space_id)
+    space.update_booked_nights(booked_nights, space_id)
   end
 
   def self.reject(request_id)
     result = DatabaseConnection.query("UPDATE requests SET approved = false
      WHERE request_id = #{request_id}
-     RETURNING request_id, guest, host, space, approved;"
+     RETURNING request_id, guest, host, space, approved, requested_date;"
     )
     host = User.find(result[0]["host"])
     guest = User.find(result[0]["guest"])

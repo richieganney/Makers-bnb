@@ -10,11 +10,11 @@ Headline specifications
 
 <!-- - Any signed-up user can list a new space. -->
 <!-- - Users can list multiple spaces. -->
-<!-- - Users should be able to name their space, provide a short           description of the space, and a price per night. -->
-- Users should be able to offer a range of dates where their space    is available.
-<!-- - Any signed-up user can request to hire any space for one night,     and this should be approved by the user that owns that space. -->
-- Nights for which a space has already been booked should not be      available for users to book that space.
-- Until a user has confirmed a booking request, that space can        still be booked for that night.
+<!-- - Users should be able to name their space, provide a short description of the space, and a price per night. -->
+<!-- - Users should be able to offer a range of dates where their space is available. -->
+<!-- - Any signed-up user can request to hire any space for one night, and this should be approved by the user that owns that space. -->
+- Nights for which a space has already been booked should not be available for users to book that space.
+- Until a user has confirmed a booking request, that space can still be booked for that night.
 
 Nice-to-haves
 =============
@@ -56,19 +56,23 @@ I want to be able to log in and out. ✅
 
 As a buyer,
 So I can go on mental holiday's
-I want to be able to request to book a space for a night
+I want to be able to request to book a space for a night ✅
 
 As a seller,
 So I can make dollar dollar bills,
-I want to be able to approve requests
+I want to be able to approve requests ✅
 
 As a buyer,
 So I know I can go on holiday's
-I want to find out if my request was approved
+I want to find out if my request was approved ✅
 
 As a seller,
 So I can control availability,
-I want to list dates that my space is available
+I want to list dates that my space is available ✅
+
+As a buyer,
+So I cannot request an unavailable night,
+I don't want to be shown unavailable nights
 
 As a buyer,
 So I can view properties that I can book,
@@ -81,6 +85,9 @@ I want to see on the calendar what days have already been booked
 As a buyer,
 So I can see only dates the seller has made available,
 I want the calendar to show from the start of available dates to the end
+
+Nice to haves
+=============
 
 As a buyer,
 So I can request more than one day to book,
