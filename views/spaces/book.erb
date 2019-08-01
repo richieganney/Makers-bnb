@@ -6,6 +6,7 @@
     <title>Makers BnB</title>
   </head>
   <body>
+    <input type="hidden" id="array1" value="<%= @space.booked_nights.to_s %>">
     <div id="header">
       <div id="links">
           <form id="sign-out-link" action="/sessions/destroy" method="post">
@@ -30,5 +31,5 @@
       </form>
     </center>
   </body>
-  <script src="src/interface.js" charset="utf-8"></script>
+  <script src="/src/interface.js" charset="utf-8"></script>
 </html>
