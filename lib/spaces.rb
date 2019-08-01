@@ -55,7 +55,8 @@ class Spaces
     else
       space.booked_nights.store(bookedNights)
     end
-    DatabaseConnection.query("UPDATE spaces SET booked_nights = #{space.booked_nights} WHERE space_id = #{space_id};")
+    p space.booked_nights
+    # DatabaseConnection.query("UPDATE spaces SET booked_nights = #{space.booked_nights} WHERE space_id = #{space_id};")
   end
 
 end
