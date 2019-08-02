@@ -101,12 +101,5 @@ class ApplicationManager < Sinatra::Base
     erb(:requests)
   end
 
-  get '/test' do
-    erb :test
-  end
-
-
-  end
-
   run! if app_file == $0
 end
