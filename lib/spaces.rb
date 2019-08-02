@@ -47,17 +47,28 @@ class Spaces
     available_from: result[0]['available_from'], available_to: result[0]['available_to'], booked_nights: result[0]['booked_nights'])
   end
 
+  def self.filter_by_date(start_date, end_date)
+    result = DatabaseConnection.query("SELECT * FROM spaces
+        WHERE available_from <= '#{start_date}'
+        AND available_to > '#{end_date}';")
+    result.map { |space| Spaces.new(address: space['address'],
+            description: space['description'],
+            price_per_night: 'price_per_night',
+            title: space['title'], owner: space['owner'], space_id: space['space_id'],
+            available_from: space['available_from'], available_to: space['available_to'], booked_nights: space['booked_nights'])}
+  end
+
   def update_booked_nights(bookedNights, space_id)
     space = Spaces.find(space_id)
     if space.booked_nights.nil?
       space.booked_nights = []
       space.booked_nights.push(bookedNights)
     else
+      space.booked_nights = space.booked_nights.delete("{}").split(',')
       space.booked_nights.push(bookedNights)
     end
     result = '{' + space.booked_nights.join(', ') + '}'
-
-    DatabaseConnection.query("UPDATE spaces SET booked_nights = #{result} WHERE space_id = #{space_id};")
+    DatabaseConnection.query("UPDATE spaces SET booked_nights = '#{result}' WHERE space_id = #{space_id};")
   end
 
 end

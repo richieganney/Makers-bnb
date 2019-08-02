@@ -50,6 +50,13 @@ def setup_sample_space(sample_host = setup_sample_host)
      RETURNING space_id;"
   )
 end
+def setup_sample_space_with_available_dates(start_date,end_date,sample_host = setup_sample_host)
+  result = DatabaseConnection.query(
+    "INSERT INTO spaces (title, owner, available_from, available_to)
+     VALUES ('shaggers landing', '#{sample_host[0]['user_id']}','#{start_date}','#{end_date}')
+     RETURNING space_id;"
+  )
+end
 
 def insert_two_booked_nights(space_id)
   DatabaseConnection.query(

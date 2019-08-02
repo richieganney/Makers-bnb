@@ -72,15 +72,15 @@ I want to list dates that my space is available ✅
 
 As a buyer,
 So I cannot request an unavailable night,
-I don't want to be shown unavailable nights
+I don't want to be shown unavailable nights ✅
 
 As a buyer,
 So I can view properties that I can book,
-I want to list spaces available on the days I can travel
+I want to list spaces available on the days I can travel ✅
 
 As a buyer,
 So I can know whether my request can be made,
-I want to see on the calendar what days have already been booked
+I want to see on the calendar what days have already been booked ✅
 
 As a buyer,
 So I can see only dates the seller has made available,

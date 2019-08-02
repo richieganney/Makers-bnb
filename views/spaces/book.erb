@@ -1,28 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <link rel=“stylesheet” href=“http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css” />
-    <script src=“http://code.jquery.com/jquery-1.9.1.js”></script>
-    <script src=“http://code.jquery.com/ui/1.10.3/jquery-ui.js”></script>
 
-    <script src="/src/interface.js"></script>
     <script src="/src/jquery.js"></script>
+    <script src="/src/interface.js"></script>
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <meta charset="utf-8">
     <link rel="stylesheet" href="/css/style.css">
     <title>Makers BnB</title>
   </head>
   <body>
+    <input type="hidden" id="array1" value="<%= @space.booked_nights.to_s %>">
+    <div id="header">
+      <div id="links">
+          <form id="sign-out-link" action="/sessions/destroy" method="post">
+            <input id="sign-outid" type="submit" name="sign_out" value="Sign out" />
+          </form>
+          <form id="request-link" action="/requests" method="get">
+            <input id="sign-outid" type="submit" name="requests" value="Requests" />
+          </form>
+          <form class="spaces-link" action="/spaces" method="get">
+            <input type="submit" name="submit" value="Spaces">
+          </form>
+      </div>
+    </div>
     <center>
       <h1><%= @space.title %></h1><br>
       <p><%= @space.description %></p>
       <p>£<%= @space.price_per_night %> per night</p>
       <p><%= @space.address %></p>
       <form action="/request/create/<%= "#{ @space.space_id }" %>" method="post">
-        <input type="text" name="requested_date" value="">
+
+        <input autocomplete="off" id="requested_date" type="text" name="requested_date" value="">
+
         <input type="submit" name="submit" value="Request to Book">
       </form>
     </center>
   </body>
-  <script src="src/interface.js" charset="utf-8"></script>
+  <script src="/src/interface.js" charset="utf-8"></script>
 </html>

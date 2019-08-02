@@ -3,12 +3,12 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel=“stylesheet” href=“http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css” />
-    <script src=“http://code.jquery.com/jquery-1.9.1.js”></script>
-    <script src=“http://code.jquery.com/ui/1.10.3/jquery-ui.js”></script>
 
-    <script src="/src/interface.js"></script>
     <script src="/src/jquery.js"></script>
+    <script src="/src/interface.js"></script>
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <link rel="stylesheet" href="/css/style.css">
     <title>List your space with Makers BnB</title>
@@ -17,7 +17,17 @@
 
     <div id="body-container">
       <div id="header">
-
+        <div id="links">
+            <form id="sign-out-link" action="/sessions/destroy" method="post">
+              <input id="sign-outid" type="submit" name="sign_out" value="Sign out" />
+            </form>
+            <form id="request-link" action="/requests" method="get">
+              <input id="sign-outid" type="submit" name="requests" value="Requests" />
+            </form>
+            <form class="spaces-link" action="/spaces" method="get">
+              <input type="submit" name="submit" value="Spaces">
+            </form>
+        </div>
       </div>
       <div id="left-third">
         <h1>List a space</h1>
@@ -28,9 +38,11 @@
           <input type="text" name="address" placeholder="Enter an address"><br>
           <input type="text" name="price_per_night" placeholder="Please enter how much per night"><br>
           <label for="available_from">Available from:</label>
-          <input type="text" name="available_from" value=""><br>
+
+          <input autocomplete="off" type="text" id="available_from" name="available_from" value=""><br>
           <label for="available_to">Available to:</label>
-          <input type="text" name="available_to" value=""><br>
+          <input autocomplete="off" type="text" id="available_to" name="available_to" value=""><br>
+
           <input type="submit" name="submit" value="List my space">
         </form>
       </div>

@@ -21,6 +21,7 @@ class Request
     space = Spaces.find(result[0]["space"])
     request = Request.new(request_id: result[0]["request_id"],guest: guest,host: host, space: space, approved: result[0]["approved"], requested_date: result[0]['requested_date'])
     Request.update_booked_nights(request.space.space_id, request.requested_date)
+    request
   end
 
   def self.update_booked_nights(space_id, booked_nights)

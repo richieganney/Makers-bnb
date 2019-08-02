@@ -12,12 +12,23 @@
     <title>Welcome to Makers BnB</title>
   </head>
   <body>
-    <div id="home-container">
-      <% if @user %>
+    <div class="grid-container">
+      <div class="grid-item">1</div>
+      <div class="grid-item">2</div>
+      <div class="grid-item">3</div>
+      <div class="grid-item">4</div>
+      <div class="grid-item">5</div>
+      <div class="grid-item">6</div>
+      <div class="grid-item">7</div>
+      <div class="grid-item">8</div>
+      <div class="grid-item">9</div>
+    </div>
 
+    <!-- <div class="global-wrapper">
+      # <% if @user %>
         <div id="welcome-header">
           <div id="welcome-hello">
-            <h2> Welcome to MakersBnB, <%= @user.first_name %> </h2>
+            <h2> Welcome to MakersBnB, # <%= @user.first_name %> </h2>
           </div>
         </div>
         <div id="welcome-picture">
@@ -39,10 +50,10 @@
             </center>
           </div>
         </div>
-      <%else %>
+      # <%else %>
         <h1> Welcome to MakersBnB </h1>
-      <% end %>
-    <% if @user.nil? %>
+      # <% end %>
+    # <% if @user.nil? %>
     <center><h1><center>Sign up now!</center></h1><br><br>
     <form action="/users/new" method="post">
       <label for="sign-up-details"><br>
@@ -59,11 +70,11 @@
       <input type="submit" value="Submit">
     </form><br>
     <p> Already a user? click <a href='/sessions/new'>here</a></center>
-    <% end %>
+    # <% end %>
     </div>
     <div id="footer">
       <h3>© Makers BnB</h3>
-    </div>
+    </div> -->
   </body>
   <script src="src/interface.js" charset="utf-8"></script>
 </html>

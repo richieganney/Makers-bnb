@@ -30,8 +30,8 @@ describe Request do
         fakeuser1 = setup_sample_host
         fakeuser2 = setup_sample_guest
         fakespace1 = setup_sample_space
-        request = DatabaseConnection.query("INSERT INTO requests (guest, host, space) VALUES(
-            '#{fakeuser1[0]['user_id']}', '#{fakeuser2[0]['user_id']}', '#{fakespace1[0]['space_id']}') RETURNING request_id, approved;")
+        request = DatabaseConnection.query("INSERT INTO requests (guest, host, space, requested_date) VALUES(
+            '#{fakeuser1[0]['user_id']}', '#{fakeuser2[0]['user_id']}', '#{fakespace1[0]['space_id']}', '2019-08-01') RETURNING request_id, approved;")
         changed_request = Request.approve(request[0]['request_id'])
         expect(changed_request.approved).to eq true
     end
@@ -114,6 +114,6 @@ describe Request do
       expect(requests_sent_by_fakeuser1[0].guest.user_id).to eq fakeuser1[0]["user_id"]
     end
 
-    
+
   end
 end
