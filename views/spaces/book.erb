@@ -13,8 +13,12 @@
   </head>
   <body>
     <input type="hidden" id="array1" value="<%= @space.booked_nights.to_s %>">
+    <input type="hidden" id="available_from" value="<%= @space.available_from %>">
+    <input type="hidden" id="available_to" value="<%= @space.available_to %>">
     <script>
     var array = document.getElementById("array1").value.substr(1).slice(0,-1).split(',');
+    var available_to = document.getElementById("available_to").value;
+    var available_from = document.getElementById("available_from").value;
 
     $( function() {
 
@@ -23,12 +27,10 @@
       changeMonth: true,
       changeYear: true,
       yearRange: '2019:2021',
-      minDate: new Date(2019, 08 - 1, 01),
-      maxDate: '+1Y',
+      minDate: new Date(available_from),
+      maxDate: new Date(available_to),
       beforeShowDay: function(date) {
       var newDate = jQuery.datepicker.formatDate('yy-mm-dd', date);
-      console.log(array)
-      console.log(newDate);
       if (array.includes(newDate)) {
           return [false, "dateNA", ""];
       } else {
