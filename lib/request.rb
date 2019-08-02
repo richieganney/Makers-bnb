@@ -1,6 +1,9 @@
 require_relative 'spaces'
 
 class Request
+
+  attr_reader :request_id , :guest , :host , :space , :approved, :requested_date
+  
   def initialize(request_id: , guest: , host: , space: , approved: nil, requested_date:)
     @request_id = request_id
     @guest = guest
@@ -9,7 +12,6 @@ class Request
     @requested_date = requested_date
     @approved = convert_sql_to_bool(approved)
   end
-  attr_reader :request_id , :guest , :host , :space , :approved, :requested_date
 
   def self.approve(request_id)
     result = DatabaseConnection.query("UPDATE requests SET approved = true
@@ -39,7 +41,6 @@ class Request
     space = Spaces.find(result[0]["space"])
     Request.new(request_id: result[0]["request_id"],guest: guest,host: host, space: space, approved: result[0]["approved"], requested_date: result[0]['requested_date'])
   end
-
 
   def self.create(guest:, host:, space:, requested_date:)
     result = DatabaseConnection.query(
@@ -73,12 +74,9 @@ class Request
   end
 
   def convert_sql_to_bool(sql_input)
-    if sql_input == "t"
-      return true
-    elsif sql_input == "f"
-      return false
-    else
-      return sql_input
-    end
+    return true if sql_input == "t"
+    return false if sql_input == "f"
+    sql_input
   end
+
 end

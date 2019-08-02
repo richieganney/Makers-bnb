@@ -7,12 +7,9 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 gem 'pg'
 gem 'rake'
 gem 'sinatra'
-
-# gem 'timecop'
 gem 'bcrypt'
 gem 'sinatra-flash'
-# gem 'sendgrid-ruby'
-# gem 'gon'
+gem 'ruby-beautify'
 
 group :test do
   gem 'capybara'
@@ -21,5 +18,3 @@ group :test do
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end
-
-# gem "rails"

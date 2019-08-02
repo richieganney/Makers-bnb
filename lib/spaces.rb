@@ -26,7 +26,6 @@ class Spaces
                 price_per_night: 'price_per_night',
                 title: space['title'], owner: space['owner'], space_id: space['space_id'],
                 available_from: space['available_from'], available_to: space['available_to'], booked_nights: space['booked_nights'])}
-
   end
 
   def self.add(address, title, description, price_per_night, user_id, available_from, available_to)
@@ -58,16 +57,12 @@ class Spaces
             available_from: space['available_from'], available_to: space['available_to'], booked_nights: space['booked_nights'])}
   end
 
-  def update_booked_nights(bookedNights, space_id)
+  def update_booked_nights(single_booked_night, space_id)
     space = Spaces.find(space_id)
-    if space.booked_nights.nil?
-      space.booked_nights = []
-      space.booked_nights.push(bookedNights)
-    else
-      space.booked_nights = space.booked_nights.delete("{}").split(',')
-      space.booked_nights.push(bookedNights)
-    end
-    result = '{' + space.booked_nights.join(', ') + '}'
+    all_nights = space.booked_nights
+    all_nights.nil? ? all_nights = [] : all_nights.delete("{}").split(',')
+    all_nights.push(single_booked_night)
+    result = '{' + all_nights.join(', ') + '}'
     DatabaseConnection.query("UPDATE spaces SET booked_nights = '#{result}' WHERE space_id = #{space_id};")
   end
 

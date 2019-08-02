@@ -25,7 +25,7 @@ describe Request do
     end
   end
 
-  describe "#approve" do
+  describe ".approve" do
     it "changes the approval status of the request to true" do
         fakeuser1 = setup_sample_host
         fakeuser2 = setup_sample_guest
@@ -37,7 +37,7 @@ describe Request do
     end
   end
 
-  describe "#reject" do
+  describe ".reject" do
     it "changes the approval status of the request to false" do
       fakeuser1 = setup_sample_host
       fakeuser2 = setup_sample_guest
@@ -48,7 +48,7 @@ describe Request do
       expect(changed_request.approved).to eq false
     end
   end
-  describe "#all_user_received" do
+  describe ".all_user_received" do
     it "it queries DB and returns array of all requests received by a user i.e. where the user is the host" do
       fakeuser1 = DatabaseConnection.query(
         "INSERT INTO users (first_name)
@@ -81,7 +81,7 @@ describe Request do
       expect(requests_received_by_user2[0].host.user_id).to eq fakeuser2[0]["user_id"]
     end
   end
-  describe "#all_user_sent" do
+  describe ".all_user_sent" do
     it "it queries DB and returns array of all requests sent by a user i.e. where the user is the guest" do
       fakeuser1 = DatabaseConnection.query(
         "INSERT INTO users (first_name)
@@ -113,7 +113,5 @@ describe Request do
       expect(requests_sent_by_fakeuser1.length).to eq 2
       expect(requests_sent_by_fakeuser1[0].guest.user_id).to eq fakeuser1[0]["user_id"]
     end
-
-
   end
 end
