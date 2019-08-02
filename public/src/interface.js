@@ -29,8 +29,6 @@ $( document ).ready(function() {
     dateFormat: 'dd-mm-yy',
     beforeShowDay: function(date) {
         var newDate = jQuery.datepicker.formatDate('yy-mm-dd', date);
-        console.log(array)
-        console.log(newDate);
         if (array.includes(newDate)) {
             return [false, "dateNA", ""];
         } else {
