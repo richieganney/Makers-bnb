@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/daniel/Makers/Makers-bnb/spec/database_connection_spec.rb": [
+      "/Users/Ganney/Projects/Portfolio/week6/MakersBnB/spec/database_connection_spec.rb": [
         1,
         1,
         null,
@@ -26,7 +26,7 @@
         null,
         null
       ],
-      "/Users/daniel/Makers/Makers-bnb/spec/features/add_space_spec.rb": [
+      "/Users/Ganney/Projects/Portfolio/week6/MakersBnB/spec/features/add_space_spec.rb": [
         1,
         null,
         1,
@@ -38,13 +38,13 @@
         1,
         1,
         1,
-        0,
+        1,
         null,
         null,
         null,
         null
       ],
-      "/Users/daniel/Makers/Makers-bnb/spec/test_helper.rb": [
+      "/Users/Ganney/Projects/Portfolio/week6/MakersBnB/spec/test_helper.rb": [
         1,
         1,
         1,
@@ -111,62 +111,7 @@
         null,
         null
       ],
-      "/Users/daniel/Makers/Makers-bnb/spec/features/approve_request_spec.rb": [
-        1,
-        null,
-        null,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        0,
-        0,
-        0,
-        null,
-        null,
-        null,
-        null,
-        0,
-        null,
-        0,
-        0,
-        0,
-        null,
-        null
-      ],
-      "/Users/daniel/Makers/Makers-bnb/spec/web_helpers.rb": [
-        1,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null
-      ],
-      "/Users/daniel/Makers/Makers-bnb/spec/features/register_page_spec.rb": [
+      "/Users/Ganney/Projects/Portfolio/week6/MakersBnB/spec/features/register_page_spec.rb": [
         1,
         null,
         null,
@@ -180,7 +125,40 @@
         null,
         null
       ],
-      "/Users/daniel/Makers/Makers-bnb/spec/features/sign_in_spec.rb": [
+      "/Users/Ganney/Projects/Portfolio/week6/MakersBnB/spec/web_helpers.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null
+      ],
+      "/Users/Ganney/Projects/Portfolio/week6/MakersBnB/spec/features/sign_in_spec.rb": [
         1,
         1,
         1,
@@ -194,10 +172,10 @@
         null,
         null
       ],
-      "/Users/daniel/Makers/Makers-bnb/spec/features/view_spaces_spec.rb": [
+      "/Users/Ganney/Projects/Portfolio/week6/MakersBnB/spec/features/view_spaces_spec.rb": [
 
       ],
-      "/Users/daniel/Makers/Makers-bnb/spec/unit/request_spec.rb": [
+      "/Users/Ganney/Projects/Portfolio/week6/MakersBnB/spec/unit/request_spec.rb": [
         1,
         1,
         1,
@@ -314,11 +292,9 @@
         1,
         null,
         null,
-        null,
-        null,
         null
       ],
-      "/Users/daniel/Makers/Makers-bnb/spec/unit/spaces_spec.rb": [
+      "/Users/Ganney/Projects/Portfolio/week6/MakersBnB/spec/unit/spaces_spec.rb": [
         1,
         1,
         1,
@@ -357,20 +333,19 @@
         1,
         null,
         null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
         null,
-        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
         null,
         null,
         null
       ],
-      "/Users/daniel/Makers/Makers-bnb/spec/unit/users_spec.rb": [
+      "/Users/Ganney/Projects/Portfolio/week6/MakersBnB/spec/unit/users_spec.rb": [
         1,
         null,
         1,
@@ -405,6 +380,6 @@
         null
       ]
     },
-    "timestamp": 1564668445
+    "timestamp": 1564756201
   }
 }

@@ -4,16 +4,10 @@ require './lib/spaces'
 require './lib/request'
 require_relative './spec/database_connection_setup'
 require './lib/user'
-# require 'gon-sinatra'
 
-
-
-# draws on the Sinatra base for the app
 class ApplicationManager < Sinatra::Base
 
-  # register Gon::Sinatra
   enable :sessions
-  # register Sinatra::Flash
 
   get '/' do
     @user = session[:user]
@@ -32,13 +26,8 @@ class ApplicationManager < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(params[:email], params[:password])
-
-    if user
-      session[:user] = user
-      redirect '/'
-    else
-      redirect('/sessions/new')
-    end
+    user ? session[:user] = user : redirect('/sessions/new')
+    redirect('/') if session[:user] = user
   end
 
   post '/sessions/destroy' do
@@ -81,7 +70,6 @@ class ApplicationManager < Sinatra::Base
     @host = User.find(@space.owner)
     Request.create(guest: @guest, host: @host, space: @space, requested_date: params[:requested_date])
     redirect('/')
-    # flash[:notice] = 'Thank you, Your request has been sent!'
   end
 
   post '/requests/approve/:request_id' do

@@ -1,4 +1,3 @@
-
 $( document ).ready(function() {
 
     $( function() {
@@ -19,5 +18,3 @@ $( document ).ready(function() {
       });
     });
 });
-
-//use above line to retrieve array from the hidden field

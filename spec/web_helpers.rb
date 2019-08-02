@@ -1,3 +1,6 @@
+require_relative '../lib/database_connection'
+require_relative '../spec/database_connection_setup.rb'
+
 def sign_up_as_test
     visit('/')
     fill_in('email', with: 'test@example.com')
@@ -24,5 +27,5 @@ def add_test_space
   fill_in('description', with: 'this is a nice apartment downtown')
   fill_in('address', with: '123 Fake St')
   fill_in('price_per_night', with: '99.99')
-  click_button 'submit'
+  click_button 'List my space'
 end

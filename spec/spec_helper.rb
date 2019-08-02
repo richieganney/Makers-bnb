@@ -20,11 +20,7 @@ require 'capybara/rspec'
 require 'rspec'
 require_relative './database_connection_setup.rb'
 
-
-
-
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
-
 
 Capybara.app = ApplicationManager
 

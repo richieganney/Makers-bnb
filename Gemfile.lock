@@ -56,6 +56,7 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
+    ruby-beautify (0.97.4)
     ruby-progressbar (1.10.1)
     simplecov (0.17.0)
       docile (~> 1.1)
@@ -90,6 +91,7 @@ DEPENDENCIES
   rake
   rspec
   rubocop (= 0.56.0)
+  ruby-beautify
   simplecov
   simplecov-console
   sinatra
