@@ -64,8 +64,8 @@ class ApplicationManager < Sinatra::Base
 
   post '/spaces' do
     @all_spaces = Spaces.all
-    @start_date = params[:available_from]
-    @end_date = params[:available_to]
+    @start_date = params[:check_in]
+    @end_date = params[:check_out]
     @filtered_spaces = Spaces.filter_by_date(@start_date, @end_date)
     erb :"spaces/spaces"
   end
