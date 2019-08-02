@@ -47,7 +47,7 @@ class Request
       VALUES(#{guest.user_id}, #{host.user_id}, #{space.space_id}, '#{requested_date}')
       RETURNING request_id;"
     )
-    Request.new(request_id: result[0]['request_id'], guest: guest, host: host, space: space, approved: nil, requested_date: requested_date, requested_date: result[0]['requested_date'])
+    Request.new(request_id: result[0]['request_id'], guest: guest, host: host, space: space, approved: nil, requested_date: requested_date)
   end
 
   def self.all_user_received(host_id)
@@ -57,7 +57,7 @@ class Request
       host = User.find(request["host"])
       guest = User.find(request["guest"])
       space = Spaces.find(request["space"])
-      Request.new(request_id: request['request_id'],guest: guest,host: host,space: space,approved: request['approved'], requested_date: result[0]['requested_date'])
+      Request.new(request_id: request['request_id'],guest: guest,host: host,space: space,approved: request['approved'], requested_date: request['requested_date'])
     }
   end
 
@@ -68,7 +68,7 @@ class Request
       host = User.find(request["host"])
       guest = User.find(request["guest"])
       space = Spaces.find(request["space"])
-      Request.new(request_id: request['request_id'],guest: guest,host: host,space: space,approved: request['approved'], requested_date: result[0]['requested_date'])
+      Request.new(request_id: request['request_id'],guest: guest,host: host,space: space,approved: request['approved'], requested_date: request['requested_date'])
     }
   end
 
