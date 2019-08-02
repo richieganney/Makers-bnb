@@ -1,8 +1,5 @@
 
 $( document ).ready(function() {
-    if (document.getElementById("array1").value !== null) {
-      var array = document.getElementById("array1").value.substr(1).slice(0,-1).split(',');
-    }
 
     $( function() {
       $( "#check_in" ).datepicker({
@@ -20,24 +17,6 @@ $( document ).ready(function() {
       $( "#available_to" ).datepicker({
         dateFormat : 'yy-mm-dd',
       });
-    });
-
-    $( function() {
-
-
-      $( "#requested_date" ).datepicker({
-    dateFormat: 'dd-mm-yy',
-    beforeShowDay: function(date) {
-        var newDate = jQuery.datepicker.formatDate('yy-mm-dd', date);
-        console.log(array)
-        console.log(newDate);
-        if (array.includes(newDate)) {
-            return [false, "dateNA", ""];
-        } else {
-            return[true, "dateA", ""]
-        }
-    }
-    });
     });
 });
 
