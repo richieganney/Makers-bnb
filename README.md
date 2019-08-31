@@ -26,15 +26,15 @@ rspec
 ## Screenshot of some of the features
 1. Sign up  
 
-<img src="./public/images/screen_request_a_booking.png =250x250" width="250" height="250">
+<img src="./public/images/screen_request_a_booking.png" width="250" height="250">
 
 2. View spaces and filter by available dates  
 
-![List of property spaces and a form to fill out to filter the spaces by date](./public/images/screenshot_spaces.png =250x250)
+<img src="./public/images/screenshot_spaces.png" width="250" height="250">
 
 3. Request a booking  
 
-![Form to request a booking of a property space](./public/images/screen_request_a_booking.png =250x250)
+<img src="./public/images/screen_request_a_booking.png" width="250" height="250">
 
 ## Contribution
 
