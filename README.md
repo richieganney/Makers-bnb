@@ -26,7 +26,7 @@ rspec
 ## Screenshots of some of the features
 1. Sign up  
 
-<img src="./public/images/sign_up.png" width="576" height="276">  
+<img src="./public/images/screenshot_sign_up.png" width="576" height="276">  
 
 2. View spaces and filter by available dates  
 
