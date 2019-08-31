@@ -23,6 +23,19 @@ When in the main project directory, run:
 rspec
 ```
 
+## Screenshots of some of the features
+1. Sign up  
+
+<img src="./public/images/screenshot_sign_up.png" width="576" height="276">  
+
+2. View spaces and filter by available dates  
+
+<img src="./public/images/screenshot_spaces.png" width="576" height="276">
+
+3. Request a booking  
+
+<img src="./public/images/screen_request_a_booking.png" width="576" height="276">
+
 ## Contribution
 
 If you would like to contribute to this project, please submit a pull request at our github page.

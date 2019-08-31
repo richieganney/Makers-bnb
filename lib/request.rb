@@ -3,7 +3,7 @@ require_relative 'spaces'
 class Request
 
   attr_reader :request_id , :guest , :host , :space , :approved, :requested_date
-  
+
   def initialize(request_id: , guest: , host: , space: , approved: nil, requested_date:)
     @request_id = request_id
     @guest = guest
