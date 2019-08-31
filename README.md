@@ -26,15 +26,14 @@ rspec
 ## Screenshot of some of the features
 1. Sign up  
 
-<img src="./public/images/screen_request_a_booking.png" width="400" height="250">
-
+<img src="./public/images/screen_request_a_booking.png" width="576" height="276"
 2. View spaces and filter by available dates  
 
-<img src="./public/images/screenshot_spaces.png" width="400" height="250">
+<img src="./public/images/screenshot_spaces.png" width="576" height="276">
 
 3. Request a booking  
 
-<img src="./public/images/screen_request_a_booking.png" width="400" height="250">
+<img src="./public/images/screen_request_a_booking.png" width="576" height="276">
 
 ## Contribution
 
