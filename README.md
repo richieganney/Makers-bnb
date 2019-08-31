@@ -23,7 +23,7 @@ When in the main project directory, run:
 rspec
 ```
 
-## Screenshot of some of the features
+## Screenshots of some of the features
 1. Sign up  
 
 <img src="./public/images/screen_request_a_booking.png" width="576" height="276"
