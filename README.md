@@ -23,6 +23,19 @@ When in the main project directory, run:
 rspec
 ```
 
+## Screenshot of some of the features
+1. Sign up  
+
+![sign up page](./public/images/screen_request_a_booking.png =250x250)
+
+2. View spaces and filter by available dates  
+
+![List of property spaces and a form to fill out to filter the spaces by date](./public/images/screenshot_spaces.png =250x250)
+
+3. Request a booking  
+
+![Form to request a booking of a property space](./public/images/screen_request_a_booking.png =250x250)
+
 ## Contribution
 
 If you would like to contribute to this project, please submit a pull request at our github page.
